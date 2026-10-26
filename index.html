@@ -6,7 +6,8 @@
 <script src="./support.js"></script>
 <meta name="ext-resource-dependency" content="media/orange-truck.webp" data-resource-id="orange-truck">
 <meta name="ext-resource-dependency" content="media/truck-pallets.webp" data-resource-id="truck-pallets">
-<meta name="ext-resource-dependency" content="media/worker-phone.webp" data-resource-id="worker-phone">
+<meta name="ext-resource-dependency" content="media/logistics-hub.webp" data-resource-id="logistics-hub">
+<meta name="ext-resource-dependency" content="media/port-team.png" data-resource-id="port-team">
 <meta name="ext-resource-dependency" content="media/truck-rear.webp" data-resource-id="truck-rear">
 <meta name="ext-resource-dependency" content="media/container-crane.webp" data-resource-id="container-crane">
 <meta name="ext-resource-dependency" content="media/fleet-warehouse.webp">
@@ -293,7 +294,6 @@ img{display:block;max-width:100%}
       <div style="display:flex;flex-wrap:wrap;gap:40px clamp(40px,6vw,96px)">
         <div style="display:flex;flex-direction:column;gap:14px;min-width:150px">
           <div style="font-weight:500;font-size:15.5px;color:#0b0b0c">Services</div>
-          <a href="#solutions" style="font-size:15.5px;line-height:1.4;color:#5c5c63" style-hover="color:#20366E">Contract Logistics</a>
           <a href="#solutions" style="font-size:15.5px;line-height:1.4;color:#5c5c63" style-hover="color:#20366E">Industrial Logistics</a>
           <a href="#solutions" style="font-size:15.5px;line-height:1.4;color:#5c5c63" style-hover="color:#20366E">Manufacturing Operations &amp; Support</a>
           <a href="#solutions" style="font-size:15.5px;line-height:1.4;color:#5c5c63" style-hover="color:#20366E">Warehousing &amp; Storage</a>
@@ -324,7 +324,7 @@ img{display:block;max-width:100%}
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;heroMedia&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;video&quot;,&quot;image&quot;],&quot;default&quot;:&quot;video&quot;,&quot;tsType&quot;:&quot;'video'|'image'&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
-const R = (p) => { const k = p.replace('media/', '').replace('.webp', ''); return (window.__resources && window.__resources[k]) || p; };
+const R = (p) => { const k = p.replace('media/', '').replace('.webp', '').replace('.png', ''); return (window.__resources && window.__resources[k]) || p; };
 const num = (a) => a.map((x, i) => Object.assign({}, x, { num: String(i + 1).padStart(2, '0') }));
 const r = (t, d) => ({ t, d });
 
@@ -334,15 +334,14 @@ const STRENGTHS = num([
 ]);
 
 const SUPPORT = [
-  { title: 'Manpower Solutions', desc: 'Workforce solutions tailored to support manufacturing, warehousing, and industrial operations.', img: R('media/worker-phone.webp'), id: 'v4-sup-manpower' },
+  { title: 'Manpower Solutions', desc: 'Workforce solutions tailored to support manufacturing, warehousing, and industrial operations.', img: R('media/port-team.png'), id: 'v4-sup-manpower' },
   { title: 'Warehousing & Storage', desc: 'Integrated storage, inventory management, and material handling solutions that support efficient warehouse and distribution operations.', img: R('media/truck-rear.webp'), id: 'v4-sup-warehousing' },
   { title: 'Container Haulage', desc: 'Reliable container transportation connecting ports, depots, manufacturing facilities, warehouses, and distribution centers to support your logistics and supply chain operations.', img: R('media/container-crane.webp'), id: 'v4-sup-haulage' },
   { title: 'Fulfilment Solutions', desc: 'Integrated B2B, e-commerce, DTC, and marketplace fulfilment, covering inventory management, order processing, picking, packing, and dispatch.', img: R('media/orange-truck.webp'), id: 'v4-sup-fulfilment' }
 ];
 
 const GROUPS = [
-  { title: 'Core Industrial & Operational Solutions', img: R('media/worker-phone.webp'), imgId: 'v4-tab-core', rows: num([
-    r('Contract Logistics', 'Integrated logistics solutions connecting transportation, warehousing, and operational support to streamline supply chain activities and meet your business requirements.'),
+  { title: 'Core Industrial & Operational Solutions', img: R('media/port-team.png'), imgId: 'v4-tab-core', rows: num([
     r('Industrial Logistics', 'Coordinated industrial material movement, inbound and outbound logistics, and inventory staging solutions tailored to manufacturing and industrial operations.'),
     r('Manufacturing Operations & Support', 'Integrated manufacturing and operations support encompassing production-line operations, intralogistics activities, material handling, and workflow coordination to support efficient manufacturing processes.'),
     r('Manpower Solutions', 'Flexible and reliable workforce solutions supporting manufacturing, assembly, warehousing, and industrial operations, tailored to your operational requirements.')]) },
@@ -364,9 +363,9 @@ const FIELDS = [
   { key: 'company', label: 'Company *', type: 'text', placeholder: 'Company name' },
   { key: 'phone', label: 'Phone', type: 'tel', placeholder: '+60' }
 ];
-const EMPTY = { name: '', company: '', email: '', phone: '', location: '', goods: '', volume: '', message: '', service: 'Contract Logistics' };
+const EMPTY = { name: '', company: '', email: '', phone: '', location: '', goods: '', volume: '', message: '', service: 'Industrial Logistics' };
 
-const SERVICE_OPTIONS = ['Contract Logistics', 'Industrial Logistics', 'Manufacturing Operations and Support', 'Warehousing', 'Container Haulage', 'Manpower Solutions', 'Fulfilment Solutions', 'Other'];
+const SERVICE_OPTIONS = ['Industrial Logistics', 'Manufacturing Operations and Support', 'Warehousing', 'Container Haulage', 'Manpower Solutions', 'Fulfilment Solutions', 'Other'];
 
 class Component extends DCLogic {
   videoRef = React.createRef();
